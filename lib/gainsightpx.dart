@@ -307,7 +307,7 @@ class GainsightPX {
     var rect = touchInterpreter.rectForViewElementTree(viewElements);
     if (arguments['global'] != null) {
       final Matrix4 transform =
-          RendererBinding.instance!.createViewConfiguration().toMatrix();
+          RendererBinding.instance.renderViews.single.configuration.toMatrix();
       rect = _transformToGlobalRect(transform, rect!);
     }
     return [rect];
@@ -320,7 +320,7 @@ class GainsightPX {
       var offset = Offset(dx, dy);
       final touchInterpreter = _TouchInterpreter.instance;
       final Matrix4 transform =
-          RendererBinding.instance!.createViewConfiguration().toMatrix();
+          RendererBinding.instance.renderViews.single.configuration.toMatrix();
       if (arguments['global'] != null) {
         offset = _transformToLocalPoint(transform, offset);
       }
